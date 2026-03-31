@@ -1,0 +1,51 @@
+{
+  "name": "setup-terraform",
+  "version": "4.0.0",
+  "description": "Setup Terraform CLI for GitHub Actions",
+  "license": "MPL-2.0",
+  "publisher": "step-security",
+  "main": "index.js",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/step-security/setup-terraform.git"
+  },
+  "scripts": {
+    "test": "semistandard --env jest && jest --coverage",
+    "lint": "semistandard --env jest --fix",
+    "build": "ncc build wrapper/terraform.js --out wrapper/dist && ncc build index.js --out dist",
+    "format-check": "echo \"unimplemented for actions/reusable-workflows basic-validation\""
+  },
+  "keywords": [],
+  "author": "step-security",
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/exec": "^1.1.1",
+    "@actions/github": "^8.0.1",
+    "@actions/io": "^1.1.3",
+    "@actions/tool-cache": "^2.0.2",
+    "@hashicorp/js-releases": "^1.7.5",
+    "semver": "^7.7.4"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.1",
+    "@vercel/ncc": "^0.38.4",
+    "jest": "^29.7.0",
+    "nock": "^14.0.11",
+    "semistandard": "^17.0.0"
+  },
+  "semistandard": {
+    "ignore": [
+      "**/dist/**"
+    ]
+  },
+  "overrides": {
+    "minimatch": "^10.2.1",
+    "glob": "^11.0.0",
+    "undici": "^6.23.0",
+    "test-exclude": "^7.0.1",
+    "babel-plugin-istanbul": "^7.0.0"
+  }
+}
